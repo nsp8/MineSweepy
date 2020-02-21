@@ -91,3 +91,10 @@ def validate_user_selection(user_value, size):
             if row_part <= size and col_part in col_headers_inv.keys():
                 return True
     return False
+
+
+def re_prompt(preface=""):
+    main_msg = "Press Return to play again, or any other key to exit"
+    prompt_msg = "\n{}\n{}\n".format(preface, main_msg)
+    action = input(prompt_msg)
+    return action.strip()

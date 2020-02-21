@@ -53,13 +53,6 @@ class BattleGround:
         print(output)
 
 
-def re_prompt(preface=""):
-    main_msg = "Press Return to play again, or any other key to exit"
-    prompt_msg = "\n{}\n{}\n".format(preface, main_msg)
-    action = input(prompt_msg)
-    return action.strip()
-
-
 if __name__ == "__main__":
     while True:
         try:
@@ -109,13 +102,13 @@ if __name__ == "__main__":
                     continue
             if new_ground.status == "detonated":
                 banner = "#" * 50
-                if re_prompt(preface=banner):
+                if util.re_prompt(preface=banner):
                     break
             if new_ground.status == "cold":
                 banner = "*" * 50
                 print("{}\nYou won!\n{}".format(banner, banner))
-                if re_prompt():
+                if util.re_prompt():
                     break
         except Exception as e:
-            if re_prompt(preface="Oops! An exception occurred: {}".format(e)):
+            if util.re_prompt(preface="Oops! An exception occurred: {}".format(e)):
                 break
